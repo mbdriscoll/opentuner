@@ -81,7 +81,8 @@ class TuningRunMain(object):
                args,
                search_driver = SearchDriver,
                measurement_driver = MeasurementDriver):
-    init_logging()
+    if not args.quiet:
+      init_logging()
 
     manipulator = measurement_interface.manipulator()
     if args.print_search_space_size:
